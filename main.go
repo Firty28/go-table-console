@@ -7,7 +7,9 @@ import (
 
 
 func main() {
+	var a int
 	table(jsonWork("info.json"))
+	fmt.Scan(&a)
 }
 
 func maxLenghtInColumn(dict map[int][]string) map[int]int {

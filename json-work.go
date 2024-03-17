@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 	"strconv"
-	// "strings"
+	// "fmt"
 )
 
 func jsonWork(path string) map[int][]string {
@@ -24,8 +24,15 @@ func jsonWork(path string) map[int][]string {
 
 	for i := 0; i < len(rowTableAll.Map()); i++ {
 		array := rowTableAll.Map()[strconv.Itoa(i+1)]
+
 		for j := 0; j < len(array.Array()); j++ {
-			tableData[i+1] = append(tableData[i+1], array.Array()[j].String())
+			if len(titleTable.Array()) > j {
+				tableData[i+1] = append(tableData[i+1], array.Array()[j].String())
+			}
+		}
+
+		for j := 0; j < (len(titleTable.Array()) - len(array.Array())); j++ {
+			tableData[i + 1] = append(tableData[i+1], " ")
 		}
 
 	}
